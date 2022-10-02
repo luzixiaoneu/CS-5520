@@ -2,6 +2,7 @@ package com.example.cs_5520_a1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button d = findViewById(R.id.button_d);
         Button e = findViewById(R.id.button_e);
         Button f = findViewById(R.id.button_f);
+        Button linkController = findViewById(R.id.link_controller);
+        linkController.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLinkControllerActivity();
+            }
+        });
+
 
         TextView output = (TextView) findViewById(R.id.pressed_text);
         output.setText("Pressed: -");
@@ -32,6 +41,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+    public void openLinkControllerActivity() {
+        Intent intent = new Intent(this, LinkControllerActivity.class);
+        startActivity(intent);
+    }
     public void clickSelfIntro(View view) {
         Toast.makeText(MainActivity.this, "My name is Zixiao Lu, My email is luzixiaoui@gmail.com"
         ,Toast.LENGTH_LONG).show();
