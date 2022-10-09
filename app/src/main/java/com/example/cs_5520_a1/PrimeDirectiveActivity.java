@@ -1,7 +1,9 @@
 package com.example.cs_5520_a1;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -50,6 +52,29 @@ public class PrimeDirectiveActivity extends AppCompatActivity {
             }
         });
 
+
+
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(PrimeDirectiveActivity.this);
+        alert.setTitle("Exit Page");
+        alert.setMessage("Do you want to exit the current Activity?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finishAffinity();
+            }
+        });
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        alert.show();
     }
 
     public void runOnDifferentThread(View view) {
