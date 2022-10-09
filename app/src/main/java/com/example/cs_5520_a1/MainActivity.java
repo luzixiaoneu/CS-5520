@@ -22,6 +22,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button e = findViewById(R.id.button_e);
         Button f = findViewById(R.id.button_f);
         Button linkController = findViewById(R.id.link_controller);
+        Button prime = findViewById(R.id.prime_directive);
+        prime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPrimeDirectiveActivity();
+            }
+        });
+
         linkController.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +49,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
+    public void openPrimeDirectiveActivity() {
+        Intent intent = new Intent(this, PrimeDirectiveActivity.class);
+        startActivity(intent);
+    }
     public void openLinkControllerActivity() {
         Intent intent = new Intent(this, LinkControllerActivity.class);
         startActivity(intent);
