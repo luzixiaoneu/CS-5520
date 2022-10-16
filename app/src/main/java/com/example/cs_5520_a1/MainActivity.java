@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button f = findViewById(R.id.button_f);
         Button linkController = findViewById(R.id.link_controller);
         Button prime = findViewById(R.id.prime_directive);
+        Button gps = findViewById(R.id.gps_button);
         prime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,6 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View view) {
                 openLinkControllerActivity();
             }
+        });
+
+        gps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { openGpsActivity();}
         });
 
 
@@ -60,6 +66,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void clickSelfIntro(View view) {
         Toast.makeText(MainActivity.this, "My name is Zixiao Lu, My email is luzixiaoui@gmail.com"
         ,Toast.LENGTH_LONG).show();
+    }
+
+    public void openGpsActivity() {
+        Intent intent = new Intent(this, GpsActivity.class );
+        startActivity(intent);
     }
 
     @Override
